@@ -6,6 +6,9 @@ include(FetchContent)
 # Generate compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Fix minimum cmake policy version for raylib
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+
 # Dependencies
 set(RAYLIB_VERSION 5.0)
 
