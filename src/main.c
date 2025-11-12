@@ -20,17 +20,17 @@ void Initialization(void) {
 
 void GameLoop(void) {
 #if defined(PLATFORM_WEB)
-  emscripten_set_main_loop(UpdateDrawScreen, 60, 1);
+  emscripten_set_main_loop(UpdateDrawFrame, 60, 1);
 #else
   SetTargetFPS(60);
 
   while (!WindowShouldClose()) {
-    UpdateDrawScreen();
+    UpdateDrawFrame();
   }
 #endif
 }
 
-void UpdateDrawScreen(void) {
+void UpdateDrawFrame(void) {
   BeginDrawing();
   ClearBackground(RAYWHITE);
 
