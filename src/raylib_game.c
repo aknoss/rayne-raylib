@@ -6,8 +6,6 @@
 #endif
 
 Font font = {0};
-Music music = {0};
-Sound fxCoin = {0};
 
 static const int screenWidth = 1080;
 static const int screenHeight = 720;
