@@ -13,7 +13,6 @@ void InitGameplayScreen(void) {
 void UpdateGameplayScreen(void) {
   if (IsKeyPressed(KEY_ENTER) || IsGestureDetected(GESTURE_TAP)) {
     finishScreen = 1;
-    PlaySound(fxCoin);
   }
 }
 

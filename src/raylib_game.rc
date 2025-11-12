@@ -6,7 +6,6 @@ PRODUCTVERSION  1,0,0,0
 BEGIN
   BLOCK "StringFileInfo"
   BEGIN
-	//BLOCK "080904E4" 	// English UK
     BLOCK "040904E4"	// English US
     BEGIN
       VALUE "CompanyName", "aknos"
