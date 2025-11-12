@@ -31,13 +31,10 @@ void GameLoop(void) {
 }
 
 void UpdateDrawFrame(void) {
+  UpdateGameScreen();
   BeginDrawing();
   ClearBackground(RAYWHITE);
-
-  // Update and then Draw current screen
-  UpdateGameScreen();
   DrawGameScreen();
-
   EndDrawing();
 }
 
