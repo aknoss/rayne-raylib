@@ -41,6 +41,9 @@ void UpdateGameScreen(void) {
   if (IsKeyDown(KEY_LEFT)) {
     player.collisionMesh.x -= 5;
   }
+  if (IsKeyDown(KEY_SPACE)) {
+    player.collisionMesh.y = 40;
+  }
   if (!isPlayerOnGround) {
     player.collisionMesh.y += 5;
   }
