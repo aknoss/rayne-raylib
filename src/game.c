@@ -3,12 +3,6 @@
 #include <stdbool.h>
 
 static int finishScreen = 0;
-struct Player {
-  Collider collider;
-};
-struct Object {
-  Collider collider;
-};
 struct Player player;
 struct Object ground;
 bool isPlayerOnGround;
@@ -24,25 +18,27 @@ void InitGameScreen(void) {
 }
 
 void UpdateGameScreen(void) {
+  float deltaTime = GetFrameTime();
+
   if (CheckCollisionRecs(ground.collider, player.collider)) {
     isPlayerOnGround = true;
   } else {
     isPlayerOnGround = false;
   }
   if (IsKeyDown(KEY_RIGHT)) {
-    player.collider.x += 5;
+    player.collider.x += 500 * deltaTime;
   }
   if (IsKeyDown(KEY_LEFT)) {
-    player.collider.x -= 5;
+    player.collider.x -= 500 * deltaTime;
   }
   if (IsKeyDown(KEY_SPACE)) {
     player.collider.y = 40;
   }
   if (IsKeyDown(KEY_UP)) {
-    player.collider.y -= 20;
+    player.collider.y -= 2000 * deltaTime;
   }
   if (!isPlayerOnGround) {
-    player.collider.y += 10;
+    player.collider.y += 1000 * deltaTime;
   }
 }
 
