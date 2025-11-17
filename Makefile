@@ -13,7 +13,7 @@ game:
 		-Ivendor/raylib/src \
 		-Lvendor/raylib/src \
 		-lraylib \
-		-lm -lpthread -ldl -lrt -lX11 \
+		-lGL -lm -lpthread -ldl -lrt -lX11 \
 		-o build/rayne
 
 clean:
