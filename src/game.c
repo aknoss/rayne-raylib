@@ -4,6 +4,7 @@
 
 static int finishScreen = 0;
 Player player;
+EnemyWave *waves;
 Object ground;
 bool isPlayerOnGround;
 
