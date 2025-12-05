@@ -33,7 +33,9 @@ void UpdateGameScreen(void) {
   float deltaTime = GetFrameTime();
   timeElapsed += deltaTime;
   if (timeElapsed - lastTrigger >= 3.0) {
-    TraceLog(LOG_ERROR, "%f", timeElapsed);
+    if (!isQueueEmpty(enemyQueue)) {
+      Enemy spawnedEnemy = dequeue(enemyQueue);
+    }
     lastTrigger = timeElapsed;
   }
 
