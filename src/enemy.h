@@ -1,7 +1,7 @@
-#include "raylib.h"
-
 #ifndef ENEMY_H
 #define ENEMY_H
+
+#include "raylib.h"
 
 typedef struct {
   Vector2 position;

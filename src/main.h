@@ -1,8 +1,8 @@
-#include "game.h"
-#include "raylib.h"
-
 #ifndef MAIN_H
 #define MAIN_H
+
+#include "game.h"
+#include "raylib.h"
 
 Font font = {0};
 static const int screenWidth = 1080;

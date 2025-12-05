@@ -1,7 +1,7 @@
-#include "raylib.h"
-
 #ifndef GAME_H
 #define GAME_H
+
+#include "raylib.h"
 
 typedef struct {
   Vector2 position;
