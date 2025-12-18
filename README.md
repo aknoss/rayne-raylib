@@ -1,3 +1,3 @@
-## Rayne 
+## Rayne
 
-This is a game made in C using the raylib library.
+Wave Walker is a platform game inspired by the T-Rex game. Made in C and raylib.

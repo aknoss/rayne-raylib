@@ -15,7 +15,7 @@ int main(void) {
 
 void Initialization(void) {
   SetTraceLogLevel(LOG_DEBUG);
-  InitWindow(screenWidth, screenHeight, "rayne");
+  InitWindow(screenWidth, screenHeight, "wave-walker");
   InitGameScreen();
 }
 

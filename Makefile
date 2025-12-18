@@ -14,7 +14,7 @@ game:
 		-Lvendor/raylib/src \
 		-lraylib \
 		-lGL -lm -lpthread -ldl -lrt -lX11 \
-		-o build/rayne
+		-o build/game
 
 clean:
 	rm -rf build vendor
