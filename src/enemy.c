@@ -1,6 +1,5 @@
 #include "enemy.h"
 #include "raylib.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 EnemyQueue *newQueue(void) {
@@ -10,7 +9,7 @@ EnemyQueue *newQueue(void) {
   return q;
 }
 
-EnemyNode *newNode(Enemy enemy) {
+EnemyNode *newNode(Enemy *enemy) {
   EnemyNode *node = (EnemyNode *)malloc(sizeof(EnemyNode));
   node->enemy = enemy;
   node->next = NULL;
@@ -19,7 +18,7 @@ EnemyNode *newNode(Enemy enemy) {
 
 bool isQueueEmpty(EnemyQueue *q) { return q->front == NULL; }
 
-void enqueue(EnemyQueue *q, Enemy enemy) {
+void enqueue(EnemyQueue *q, Enemy *enemy) {
   EnemyNode *node = newNode(enemy);
 
   if (isQueueEmpty(q)) {
@@ -32,15 +31,15 @@ void enqueue(EnemyQueue *q, Enemy enemy) {
   q->size++;
 }
 
-Enemy dequeue(EnemyQueue *q) {
+Enemy *dequeue(EnemyQueue *q) {
   if (isQueueEmpty(q)) {
     TraceLog(LOG_ERROR, "Error: queue is empty. Cannot dequeue.\n");
-    Enemy errorEnemy;
+    Enemy *errorEnemy = {0};
     return errorEnemy;
   }
 
   EnemyNode *dequeuedNode = q->front;
-  Enemy dequeuedEnemy = dequeuedNode->enemy;
+  Enemy *dequeuedEnemy = dequeuedNode->enemy;
 
   q->front = q->front->next;
   free(dequeuedNode);

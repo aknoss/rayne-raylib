@@ -7,7 +7,7 @@ typedef struct {
 } EnemyRaw;
 
 typedef struct {
-  const EnemyRaw *enemies;
+  EnemyRaw *enemies;
   const int enemyCount;
   const float time_to_spawn;
 } Level;

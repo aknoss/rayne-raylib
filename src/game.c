@@ -1,8 +1,9 @@
 #include "game.h"
 #include "enemy.h"
-#include "level_manager.h"
+#include "levels/level.h"
 #include "raylib.h"
 #include <stdbool.h>
+#include <stdlib.h>
 
 static int finishScreen = 0;
 Player player;
@@ -11,6 +12,9 @@ bool isPlayerOnGround;
 EnemyQueue *enemyQueue;
 double timeElapsed;
 double lastTrigger = 0;
+Level *currentLevel;
+extern Level level_1;
+int currentEnemyIndex = 0;
 
 void DrawLevel1(void) { DrawRectangleRec(ground.collider, BROWN); }
 
@@ -18,7 +22,7 @@ void InitGameScreen(void) {
   finishScreen = 0;
   isPlayerOnGround = false;
   enemyQueue = newQueue();
-  loadLevel(enemyQueue, LEVEL_1_PATH);
+  currentLevel = &level_1;
 
   player.position = (Vector2){100, 400};
   player.collider = (Rectangle){player.position.x, player.position.y, 40, 80};
@@ -34,10 +38,17 @@ void UpdateCollider(Player *player) {
 void UpdateGameScreen(void) {
   float deltaTime = GetFrameTime();
   timeElapsed += deltaTime;
-  if (timeElapsed - lastTrigger >= 3.0) {
-    if (!isQueueEmpty(enemyQueue)) {
-      Enemy spawnedEnemy = dequeue(enemyQueue);
-    }
+  if ((timeElapsed - lastTrigger >= currentLevel->time_to_spawn) &&
+      currentEnemyIndex < currentLevel->enemyCount) {
+    EnemyRaw *enemyRaw = &currentLevel->enemies[currentEnemyIndex];
+    Enemy *enemy = (Enemy *)malloc(sizeof(Enemy));
+
+    enemy->position = (Vector2){800, 400};
+    enemy->collider =
+        (Rectangle){enemy->position.x, enemy->position.y, 40, enemyRaw->height};
+
+    enqueue(enemyQueue, enemy);
+    currentEnemyIndex++;
     lastTrigger = timeElapsed;
   }
 

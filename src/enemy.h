@@ -10,7 +10,7 @@ typedef struct {
 } Enemy;
 
 typedef struct EnemyNode {
-  Enemy enemy;
+  Enemy *enemy;
   struct EnemyNode *next;
 } EnemyNode;
 
@@ -21,9 +21,9 @@ typedef struct EnemyQueue {
 } EnemyQueue;
 
 EnemyQueue *newQueue(void);
-EnemyNode *newNode(Enemy);
+EnemyNode *newNode(Enemy *);
 bool isQueueEmpty(EnemyQueue *);
-void enqueue(EnemyQueue *, Enemy);
-Enemy dequeue(EnemyQueue *);
+void enqueue(EnemyQueue *, Enemy *);
+Enemy *dequeue(EnemyQueue *);
 
 #endif // ENEMY.H
