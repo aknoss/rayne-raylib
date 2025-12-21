@@ -12,4 +12,6 @@ typedef struct {
   const float time_to_spawn;
 } Level;
 
+Level level_1;
+
 #endif // LEVEL_H

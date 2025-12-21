@@ -1,6 +1,6 @@
 #include "level.h"
 
-static const EnemyRaw enemies[] = {
+static EnemyRaw enemies[] = {
     {10, 10},
     {10, 10},
     {10, 10},
