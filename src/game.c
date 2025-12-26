@@ -47,9 +47,13 @@ void UpdateGameScreen(void) {
   float deltaTime = GetFrameTime();
   timeElapsed += deltaTime;
 
-  if ((((timeElapsed - lastTrigger) >= currentLevel->time_to_spawn) &&
-       currentEnemyIndex < currentLevel->enemy_count) ||
-      (currentEnemyIndex == 0 && timeElapsed > 1.0)) {
+  const bool isFirstSpawn = currentEnemyIndex == 0 && timeElapsed > 1.0;
+
+  const bool isReadyToSpawn =
+      (((timeElapsed - lastTrigger) >= currentLevel->time_to_spawn) &&
+       currentEnemyIndex < currentLevel->enemy_count);
+
+  if (isFirstSpawn || isReadyToSpawn) {
     EnemyRaw *enemyRaw = &currentLevel->enemies[currentEnemyIndex];
     Enemy *enemy = (Enemy *)malloc(sizeof(Enemy));
 
