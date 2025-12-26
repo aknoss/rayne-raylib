@@ -73,7 +73,7 @@ void UpdateGameScreen(void) {
     isPlayerOnGround = false;
   }
   if (isPlayerOnGround && IsKeyDown(KEY_SPACE)) {
-    player.velocity = 2500;
+    player.velocity = 2000;
   }
   if (player.velocity > 0) {
     player.position.y -= player.velocity * deltaTime;
