@@ -72,21 +72,27 @@ void UpdateGameScreen(void) {
     isJumping = true;
   }
 
+  // Update position if in a jump
   if (player.velocity > 0) {
+    player.position.y -= player.velocity * deltaTime;
     player.position.y -= player.velocity * deltaTime;
     player.velocity -= 3000 * deltaTime;
   }
 
-  if (isJumping) {
-    player.position.y += 600 * deltaTime;
-  }
+  // Gravity
+  player.position.y += 1600 * deltaTime;
+
+  UpdatePlayerCollider(&player);
 
   if (CheckCollisionRecs(ground.collider, player.collider)) {
+    // Rollback player position to contact with ground
+    player.position.y =
+        ground.collider.y - ground.collider.height - player.collider.height / 2;
+    UpdatePlayerCollider(&player);
     isJumping = false;
   }
 
   MoveEnemies(enemyQueue, deltaTime);
-  UpdatePlayerCollider(&player);
 }
 
 void DrawGameScreen(void) {
