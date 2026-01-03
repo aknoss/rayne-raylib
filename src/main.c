@@ -9,7 +9,10 @@ static void Cleanup(void);
 int main(void) {
   Initialization();
 
-  GameLoop();
+  // TODO: check also if user clicked in-game exit button
+  while (!WindowShouldClose()) {
+    GameLoop();
+  }
 
   Cleanup();
   return 0;
@@ -23,12 +26,6 @@ static void Initialization(void) {
 }
 
 static void GameLoop(void) {
-  while (!WindowShouldClose()) {
-    UpdateDrawFrame();
-  }
-}
-
-static void UpdateDrawFrame(void) {
   UpdateGameScreen();
   BeginDrawing();
   ClearBackground(RAYWHITE);
