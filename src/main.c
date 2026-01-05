@@ -18,6 +18,7 @@ int main(void) {
 
   // TODO: check also if user clicked in-game exit button
   while (isGameRunning) {
+    isGameRunning = !WindowShouldClose();
     GameLoop();
   }
 
@@ -33,7 +34,6 @@ static void Initialization(void) {
 }
 
 static void GameLoop(void) {
-  isGameRunning = !WindowShouldClose();
   UpdateGameScreen();
   BeginDrawing();
   ClearBackground(RAYWHITE);
