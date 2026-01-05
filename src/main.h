@@ -1,12 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "game.h"
 #include "raylib.h"
 
-Font font = {0};
-const char *GAME_NAME = "Wave Walker";
-const int SCREEN_WIDTH = 1080;
-const int SCREEN_HEIGHT = 720;
+extern Font font;
+extern const char *GAME_NAME;
+extern const int SCREEN_WIDTH;
+extern const int SCREEN_HEIGHT;
+
+extern bool isGameRunning;
 
 #endif // MAIN_H

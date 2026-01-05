@@ -1,15 +1,23 @@
 #include "main.h"
+#include "game.h"
 #include "raylib.h"
+
+const char *GAME_NAME = "Wave Walker";
+const int SCREEN_WIDTH = 1080;
+const int SCREEN_HEIGHT = 720;
+Font font = {0};
 
 static void Initialization(void);
 static void GameLoop(void);
 static void Cleanup(void);
 
+bool isGameRunning = true;
+
 int main(void) {
   Initialization();
 
   // TODO: check also if user clicked in-game exit button
-  while (!WindowShouldClose()) {
+  while (isGameRunning) {
     GameLoop();
   }
 
@@ -25,6 +33,7 @@ static void Initialization(void) {
 }
 
 static void GameLoop(void) {
+  isGameRunning = !WindowShouldClose();
   UpdateGameScreen();
   BeginDrawing();
   ClearBackground(RAYWHITE);
