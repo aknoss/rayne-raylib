@@ -10,4 +10,12 @@ extern const int SCREEN_HEIGHT;
 
 extern bool isGameRunning;
 
+enum Scene {
+  MENU,
+  SELECT_LEVEL,
+  GAME,
+};
+
+extern enum Scene currentScene;
+
 #endif // MAIN_H

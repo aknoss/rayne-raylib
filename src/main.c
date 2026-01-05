@@ -12,6 +12,11 @@ static void GameLoop(void);
 static void Cleanup(void);
 
 bool isGameRunning = true;
+enum Scene {
+  MENU,
+  SELECT_LEVEL,
+  GAME,
+};
 
 int main(void) {
   Initialization();
